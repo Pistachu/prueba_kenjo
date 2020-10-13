@@ -1,0 +1,17 @@
+<div class="container text-center">
+    <h1 class="my-5">Artists</h1>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
+        <div class="col mb-4" *ngFor="let artist of artistsArr">
+            <div class="card h-100">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <img [src]="artist.photoUrl" class="card-img-top embed-responsive-item" [alt]="artist.name">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{artist.name}}</h5>
+                    <p class="card-text">{{artist.birthdate | date: "dd-MM-yyy"}} -
+                        {{artist.deathDate | date: "dd-MM-yyy"}} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
