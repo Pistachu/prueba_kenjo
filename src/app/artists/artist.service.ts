@@ -17,4 +17,16 @@ export class ArtistService {
   getArtist(id): Promise<Artist> {
     return this.httpClient.get<Artist>(`${environment.apiURL}/artist/${id}`).toPromise();
   }
+
+  createArtist(artist): Promise<any> {
+    return this.httpClient.post<any>(`${environment.apiURL}/artist`, artist).toPromise();
+  }
+
+  deleteArtist(id): Promise<Artist> {
+    return this.httpClient.delete<Artist>(`${environment.apiURL}/artist/${id}`).toPromise();
+  }
+
+  updateArtist(id, artist): Promise<any> {
+    return this.httpClient.put<any>(`${environment.apiURL}/artist/${id}`, artist).toPromise();
+  }
 }

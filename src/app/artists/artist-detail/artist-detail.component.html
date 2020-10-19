@@ -1,1 +1,68 @@
-<p>artist-detail works!</p>
+<div class="container d-flex flex-wrap text-center align-items-center justify-content-center">
+    <div class="card h-100 my-3 col-12 col-xl-6">
+        <img [src]="artist?.photoUrl" class="card-img-top" [alt]="artist?.name">
+        <div class="card-body">
+            <h5 class="card-title">{{artist?.name | uppercase}}</h5>
+            <p class="card-text">{{artist?.birthdate | date: "dd-MM-yyy"}} - {{artist?.deathDate | date: "dd-MM-yyy"}}
+            </p>
+        </div>
+    </div>
+    <div class="editArtist col-12 col-xl-6" *ngIf="showEdit">
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="rounded p-3">
+            <div class="form-group">
+                <label>Artist name</label>
+                <input type="text" class="form-control" formControlName="name" [(ngModel)]="artist.name">
+                <p class="error mt-3" *ngIf="editForm.controls.name.errors && editForm.controls.name.touched">
+                    The field is required.
+                </p>
+            </div>
+            <div class="form-group">
+                <label>Artist photo url</label>
+                <input type="text" class="form-control" formControlName="photoUrl" [(ngModel)]="artist.photoUrl">
+                <p class="error mt-3" *ngIf="editForm.controls.photoUrl.errors && editForm.controls.photoUrl.touched">
+                    The field is required.
+                </p>
+            </div>
+            <div class="form-group">
+                <label>Artist birth date (between 1909 and 2030)</label>
+                <input type="date" class="form-control" formControlName="birthdate"
+                    min="{{minDate | date:'yyyy-MM-dd'}}" max="{{maxDate | date:'yyyy-MM-dd'}}" [(ngModel)]="birthdate">
+                <p class="error mt-3" *ngIf="editForm.controls.birthdate.errors && editForm.controls.birthdate.touched">
+                    A valid date is required between 1909 and 2030
+                </p>
+            </div>
+            <div class="form-group">
+                <label>Artist death date (between 1909 and 2030)</label>
+                <input type="date" class="form-control" formControlName="deathDate"
+                    min="{{minDate | date:'yyyy-MM-dd'}}" max="{{maxDate | date:'yyyy-MM-dd'}}" [(ngModel)]="deathDate">
+                <p class="error mt-3" *ngIf="editForm.controls.deathDate.errors && editForm.controls.deathDate.touched">
+                    A valid date is required between 1909 and 2030
+                </p>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-danger mr-1" [disabled]="!editForm.valid">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="buttons col-12 my-3">
+        <button class="btn btn-lg btn-outline-info mx-3" (click)="onEdit()">Edit</button>
+        <button class="btn btn-lg btn-outline-danger" (click)="onDelete()">Delete</button>
+    </div>
+    <div class="col-12" *ngIf="arrAlbums.length!==0">
+        <h3 class="my-5">Albums</h3>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 align-items-center justify-content-center">
+            <div class="col mb-4" *ngFor="let album of arrAlbums">
+                <div class="card h-100">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <img [src]="album.coverUrl" class="card-img-top embed-responsive-item" [alt]="album.title">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{album.title | uppercase}}</h5>
+                        <p class="card-text">{{album.year}}</p>
+                        <p class="card-text">{{album.genre | uppercase}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

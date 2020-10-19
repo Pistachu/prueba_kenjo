@@ -1,6 +1,5 @@
 .card {
     max-width: 90%;
-    /* margin: 0 auto; */
 }
 
 input.ng-valid.ng-touched, select.ng-valid.ng-touched {

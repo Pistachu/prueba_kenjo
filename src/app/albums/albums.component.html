@@ -7,9 +7,9 @@
                     <img [src]="album.coverUrl" class="card-img-top embed-responsive-item" [alt]="album.title">
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">{{album.title}}</h5>
+                    <h5 class="card-title">{{album.title | uppercase}}</h5>
                     <p class="card-text">{{album.year}}</p>
-                    <p class="card-text">{{album.genre}}</p>
+                    <p class="card-text">{{album.genre | uppercase}}</p>
                 </div>
             </div>
         </div>

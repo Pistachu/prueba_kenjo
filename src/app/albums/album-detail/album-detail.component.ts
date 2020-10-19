@@ -54,8 +54,6 @@ export class AlbumDetailComponent implements OnInit {
     this.arrArtists = await this.artistService.getAll();
   }
 
-
-
   onDelete() {
     Swal.fire({
       title: 'Are you sure?',

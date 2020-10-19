@@ -7,7 +7,7 @@
                     <img [src]="artist.photoUrl" class="card-img-top embed-responsive-item" [alt]="artist.name">
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">{{artist.name}}</h5>
+                    <h5 class="card-title">{{artist.name | uppercase}}</h5>
                     <p class="card-text">{{artist.birthdate | date: "dd-MM-yyy"}} -
                         {{artist.deathDate | date: "dd-MM-yyy"}} </p>
                 </div>
