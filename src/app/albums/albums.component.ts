@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Album } from '../models/album.model';
+import { AlbumsService } from './albums.service';
 
 @Component({
   selector: 'app-albums',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlbumsComponent implements OnInit {
 
-  constructor() { }
+  albumsArr: Album[] = [];
 
-  ngOnInit(): void {
+  showButtons: boolean = false;
+
+  constructor(private albumsService: AlbumsService, private router: Router) { }
+
+  async ngOnInit() {
+    this.albumsArr = await this.albumsService.getAll();
+  }
+
+  onClickAlbum(album) {
+    this.router.navigate(['/albums', album._id]);
+  }
+
+  onClickAdd() {
+    this.router.navigate(['/albums', 'new']);
   }
 
 }

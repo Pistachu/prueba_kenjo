@@ -5,7 +5,3 @@
 .card:hover {
     border: 3px solid palegreen;
 }
-
-.card-img-top {
-    object-fit: cover;
-}

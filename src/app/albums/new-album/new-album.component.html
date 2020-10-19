@@ -1,0 +1,42 @@
+<div class="container text-center">
+    <h1 class="my-5">Add album</h1>
+    <form [formGroup]="addNewForm" (ngSubmit)="onSubmit()" class="rounded p-3">
+        <div class="form-group">
+            <label>Album title</label>
+            <input type="text" class="form-control" formControlName="title">
+            <p class="error mt-3" *ngIf="addNewForm.controls.title.errors && addNewForm.controls.title.touched">
+                The field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label>Album artist</label>
+            <select class="custom-select form-control" formControlName="artistId">
+                <option *ngFor="let artist of arrArtists" [value]="artist?._id">{{artist?.name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Album cover url</label>
+            <input type="text" class="form-control" formControlName="coverUrl">
+            <p class="error mt-3" *ngIf="addNewForm.controls.coverUrl.errors && addNewForm.controls.coverUrl.touched">
+                The field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label>Album year (between 1909 and 2030)</label>
+            <input type="number" class="form-control" formControlName="year">
+            <p class="error mt-3" *ngIf="addNewForm.controls.year.errors && addNewForm.controls.year.touched">
+                A valid number is required between 1909 and 2030
+            </p>
+        </div>
+        <div class="form-group">
+            <label>Album genre</label>
+            <input type="text" class="form-control" formControlName="genre">
+            <p class="error mt-3" *ngIf="addNewForm.controls.genre.errors && addNewForm.controls.genre.touched">
+                The field is required.
+            </p>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-danger mr-1" [disabled]="!addNewForm.valid">Submit</button>
+        </div>
+    </form>
+</div>

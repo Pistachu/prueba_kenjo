@@ -2,7 +2,7 @@
     <h1 class="my-5">Artists</h1>
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
         <div class="col mb-4" *ngFor="let artist of artistsArr">
-            <div class="card h-100">
+            <div class="card h-100" (click)="onClickArtist(artist)">
                 <div class="embed-responsive embed-responsive-16by9">
                     <img [src]="artist.photoUrl" class="card-img-top embed-responsive-item" [alt]="artist.name">
                 </div>
@@ -14,4 +14,5 @@
             </div>
         </div>
     </div>
+    <button class="btn btn-outline-success btn-lg my-3" (click)="onClickAdd()">Add artist</button>
 </div>
