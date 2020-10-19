@@ -71,7 +71,7 @@ export class AlbumDetailComponent implements OnInit {
               toast: true,
               position: 'center',
               showConfirmButton: false,
-              timer: 3000,
+              timer: 2000,
               timerProgressBar: true,
               onOpen: (toast) => {
                 toast.addEventListener('mouseenter', Swal.stopTimer)

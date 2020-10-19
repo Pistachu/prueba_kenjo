@@ -28,9 +28,7 @@ export class NewArtistComponent implements OnInit {
       birthdate: new FormControl('', [
         Validators.required,
       ]),
-      deathDate: new FormControl('', [
-        Validators.required,
-      ])
+      deathDate: new FormControl('')
     });
     this.minDate = new Date(1909, 0, 1);
     this.maxDate = new Date(2030, 11, 31);

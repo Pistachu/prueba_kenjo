@@ -49,9 +49,7 @@ export class ArtistDetailComponent implements OnInit {
       birthdate: new FormControl('', [
         Validators.required,
       ]),
-      deathDate: new FormControl('', [
-        Validators.required,
-      ])
+      deathDate: new FormControl('')
     });
     this.minDate = new Date(1909, 0, 1);
     this.maxDate = new Date(2030, 11, 31);
@@ -87,7 +85,7 @@ export class ArtistDetailComponent implements OnInit {
               toast: true,
               position: 'center',
               showConfirmButton: false,
-              timer: 3000,
+              timer: 2000,
               timerProgressBar: true,
               onOpen: (toast) => {
                 toast.addEventListener('mouseenter', Swal.stopTimer)
