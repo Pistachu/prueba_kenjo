@@ -17,7 +17,7 @@
             </div>
             <div class="form-group">
                 <label>Album artist</label>
-                <select class="custom-select form-control" formControlName="artistId">
+                <select class="custom-select form-control" formControlName="artistId" [ngModel]="artist?._id">
                     <option *ngFor="let artist of arrArtists" [value]="artist?._id">{{artist?.name}}</option>
                 </select>
             </div>
